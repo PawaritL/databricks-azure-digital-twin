@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC 
-# MAGIC ### Generate & Simulate IoT Data for Root Cause Analysis
+# MAGIC #### Generate IoT Data for Root Cause Analysis
 
 # COMMAND ----------
 
@@ -91,3 +91,9 @@ for station in faulty_stations:
 schema_name = "digital_twins"
 table_name = "battery_coating_analysis"
 spark.createDataFrame(coating_df).write.mode("overwrite").saveAsTable(f"{schema_name}.{table_name}")
+
+# COMMAND ----------
+
+# MAGIC %md 
+# MAGIC 
+# MAGIC #### You can now directly query the table you defined in `.saveAsTable()` using Databricks SQL!

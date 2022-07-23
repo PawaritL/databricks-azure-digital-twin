@@ -1,4 +1,10 @@
 # Databricks notebook source
+# MAGIC %md 
+# MAGIC 
+# MAGIC #### 1. Retrieve sample data
+
+# COMMAND ----------
+
 # MAGIC %pip install azure-storage-blob
 
 # COMMAND ----------
@@ -15,6 +21,12 @@ full_df = pd.read_csv(vibration_reports_path)
 
 no_fault_df = full_df[full_df["fault"].str.contains("Normal")].drop("fault", axis=1)
 fault_df = full_df[full_df["fault"].str.contains("Ball_007_1")].drop("fault", axis=1)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC 
+# MAGIC #### 2. Upload as different files (simulating different devices) to an Azure Blob Storage Container
 
 # COMMAND ----------
 
