@@ -1,0 +1,116 @@
+[
+  {
+    "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site;1",
+    "@type": "Interface",
+    "displayName": "Production Site",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "SiteId",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "SiteName",
+        "schema": "string",
+        "writable": true
+      },
+      {
+        "@type": "Property",
+        "name": "Country",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "ZipCode",
+        "schema": "string",
+        "writable": true
+      },
+      {
+        "@type": "Property",
+        "name": "GeoLocation",
+        "schema": {
+          "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:custom_schema:SiteGeoCord;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:custom_schema:SiteGeoCord:lat;1",
+              "name": "Latitude",
+              "schema": "double"
+            },
+            {
+              "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:custom_schema:SiteGeoCord:lon;1",
+              "name": "Longitude",
+              "schema": "double"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Property",
+        "name": "Tags",
+        "schema": "string",
+        "writable": true
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:rel_runs_lines;1",
+        "name": "rel_runs_lines",
+        "displayName": "Runs Production lines",
+        "target": "dtmi:com:microsoft:iot:e2e:digital_factory:production_line;1"
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:rel_supplied_by;1",
+        "name": "rel_supplied_by",
+        "displayName": "SuppliedBy",
+        "target": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:supplier;1",
+        "properties": [
+          {
+            "@type": "Property",
+            "name": "last_supply_date",
+            "schema": "date"
+          },
+          {
+            "@type": "Property",
+            "name": "supplier_contact",
+            "schema": "string"
+          }
+        ]
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:rel_serves_region;1",
+        "name": "rel_serves_region",
+        "displayName": "serves region",
+        "target": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:region;1",
+        "properties": [
+          {
+            "@type": "Property",
+            "name": "GeographicRegion",
+            "schema": "string"
+          }
+        ]
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_site:rel_transportation_by;1",
+        "name": "transportation_by",
+        "displayName": "Transportation By",
+        "properties": [
+          {
+            "@type": "Property",
+            "name": "last_shipment_date",
+            "schema": "string"
+          },
+          {
+            "@type": "Property",
+            "name": "last_shipment_serial_number",
+            "schema": "string"
+          }
+        ]
+      }
+    ]
+  }
+]

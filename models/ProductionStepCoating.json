@@ -1,0 +1,37 @@
+[
+  {
+    "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_coating;2",
+    "@type": "Interface",
+    "extends": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step;2",
+    "displayName": "Step 2: Coating",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+      {
+        "@type": ["Property", "Temperature"],
+        "name": "CoatingSurfaceTemperature",
+        "schema": "double",
+        "unit": "degreeCelsius",
+        "writable": true
+      },
+      {
+        "@type": ["Property", "Temperature"],
+        "name": "DryerTemperature",
+        "schema": "double",
+        "unit": "degreeCelsius",
+        "writable": true
+      },
+      {
+        "@type": "Property",
+        "name": "DryerFanSpeed",
+        "schema": "double"
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_coating:leads_to;1",
+        "name": "leads_to",
+        "displayName": "leads to",
+        "target": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_calendering;2"
+      }
+    ]
+  }
+]

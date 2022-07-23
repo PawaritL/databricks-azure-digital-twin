@@ -1,0 +1,23 @@
+[
+  {
+    "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_calendering;2",
+    "@type": "Interface",
+    "displayName": "Step 3: Calendering",
+    "extends": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step;2",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+      {
+        "@type": [ "Property", "Pressure" ],
+        "name": "HydraulicPressure",
+        "schema": "double",
+        "unit": "pascal",
+        "writable": true
+      },
+      {
+        "@type": "Property",
+        "name": "PowerUsage",
+        "schema": "double"
+      }
+    ]
+  }
+]

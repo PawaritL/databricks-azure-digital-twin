@@ -1,0 +1,109 @@
+[
+  {
+    "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_mixing;2",
+    "@type": "Interface",
+    "extends": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step;2",
+    "displayName": "Step 1: Mixing",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "HealthPrediction",
+        "schema": "string",
+        "writable": true
+      },
+      {
+        "@type": ["Property", "Temperature"],
+        "name": "SlurryTemperature",
+        "schema": "double",
+        "unit": "degreeCelsius",
+        "writable": true
+      },
+      {
+        "@type": ["Property", "Power"],
+        "name": "PowerUsage",
+        "schema": "double",
+        "unit" : "kilowatt"
+      },
+      {
+        "@type": ["Property", "RotationSpeed"],
+        "name": "MixingRotationSpeed",
+        "schema": "double",
+        "unit": "rpm"
+      },
+      {
+        "@type": ["Property", "Frequency"],
+        "name": "VibrationFrequencyPeak",
+        "schema": "double",
+        "unit": "hertz"
+      },
+      {
+        "@type": ["Property", "Amplitude"],
+        "name": "VibrationAmplitudePeak",
+        "schema": "double",
+        "unit": "g"
+      },
+      {
+        "@type": "Component",
+        "name": "InnerRing",
+        "schema": "dtmi:com:adt:dtsample:inner_ring;1"
+      },
+      {
+        "@type": "Component",
+        "name": "OuterRing",
+        "schema": "dtmi:com:adt:dtsample:outer_ring;1"
+      },
+      {
+        "@type": "Component",
+        "name": "BallBearings",
+        "schema": "dtmi:com:adt:dtsample:ball_bearings;1"
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_mixing:leads_to;1",
+        "name": "leads_to",
+        "displayName": "leads to",
+        "target": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_coating;2"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:adt:dtsample:inner_ring;1",
+    "@type": "Interface",
+    "displayName": "Inner Ring",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "faultPredicted",
+        "schema": "boolean"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:adt:dtsample:outer_ring;1",
+    "@type": "Interface",
+    "displayName": "Outer Ring",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "faultPredicted",
+        "schema": "boolean"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:adt:dtsample:ball_bearings;1",
+    "@type": "Interface",
+    "displayName": "Ball Bearings",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "faultPredicted",
+        "schema": "boolean"
+      }
+    ]
+  }
+]
