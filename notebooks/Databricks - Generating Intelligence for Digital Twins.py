@@ -222,10 +222,10 @@ client.transition_model_version_stage(
 # DBTITLE 1,Retrieve Credentials
 import os 
 
-azSubcriptionId = "..." # please use Databricks Secrets
-azTenantId = "..." # please use Databricks Secrets
-spId = "..." # please use Databricks Secrets
-spSecret = "..." # please use Databricks Secrets
+azSubcriptionId = ... # please use Databricks Secrets
+azTenantId = ... # please use Databricks Secrets
+spId = ... # please use Databricks Secrets
+spSecret = ... # please use Databricks Secrets
 
 os.environ["AZURE_TENANT_ID"] = azTenantId
 os.environ["AZURE_CLIENT_ID"] = spId
