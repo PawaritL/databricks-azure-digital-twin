@@ -8,11 +8,6 @@
 import pyspark.sql.functions as F
 from pyspark.sql.types import *
 
-import copy
-import os
-import json
-import traceback
-
 # COMMAND ----------
 
 import numpy as np

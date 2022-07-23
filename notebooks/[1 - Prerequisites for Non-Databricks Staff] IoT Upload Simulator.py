@@ -46,7 +46,7 @@ upload_interval = 3 # in seconds
 t_failure = 30 # seconds until "Mixing Station failure"
 i_failure = int(t_failure / upload_interval) # iteration for failure to occur at
 
-for i in range(1, max_uploads):
+for i in range(1, max_uploads+1):
   
   chosen_df = no_fault_df if (i < i_failure) else fault_df
   feature_df = chosen_df.sample(n=1, random_state=i).reset_index(drop=True)
@@ -61,7 +61,7 @@ for i in range(1, max_uploads):
 
 # COMMAND ----------
 
-# DBTITLE 1,Finally, let's delete the blobs we just uploaded
+# DBTITLE 1,[Clean-Up] delete the files we previously uploaded for the demo
 def get_blob_list():
   return [
     {k: b[k] for k in ["name", "last_modified"]} for b in 
@@ -69,20 +69,23 @@ def get_blob_list():
       name_starts_with="digital-twin/data/landing_zone/"
     )
   ]
-blob_list_before = get_blob_list()
-print("BEFORE:")
-print(pd.DataFrame(blob_list_before))
+  
+# Uncomment the code below to delete previously uploaded files
 
-try:
-  blobs_deleted = 0
-  for blob in blob_list_before:
-    container_client.delete_blob(blob["name"])
-    blobs_deleted += 1
-  print()
-  print("Blobs Deleted:", blobs_deleted)
-  print()
-except:
-  pass
+# blob_list_before = get_blob_list()
+# print("BEFORE:")
+# print(pd.DataFrame(blob_list_before))
 
-print("AFTER:")
-print(pd.DataFrame(get_blob_list()))
+# try:
+#   blobs_deleted = 0
+#   for blob in blob_list_before:
+#     container_client.delete_blob(blob["name"])
+#     blobs_deleted += 1
+#   print()
+#   print("Blobs Deleted:", blobs_deleted)
+#   print()
+# except:
+#   pass
+
+# print("AFTER:")
+# print(pd.DataFrame(get_blob_list()))
