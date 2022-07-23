@@ -93,4 +93,6 @@ for station in faulty_stations:
   faulty_df["_index"] = faulty_df.index + healthy_df.index.max()*(r+1)
   coating_df = pd.concat([coating_df, faulty_df], axis=0)
   
-spark.createDataFrame(coating_df).write.mode("overwrite").saveAsTable("pawarit.battery_coating_analysis")
+schema_name = "digital_twins"
+table_name = "battery_coating_analysis"
+spark.createDataFrame(coating_df).write.mode("overwrite").saveAsTable(f"{schema_name}.{table_name}")

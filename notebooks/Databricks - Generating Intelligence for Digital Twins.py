@@ -101,7 +101,9 @@
 
 import pandas as pd
 
-vibration_reports_path = "https://pawaritstorageaccount.blob.core.windows.net/public/digital-twin-gtm/data/model_development/vibration_reports.csv"
+storage_account = "pawaritstorageaccount" # for original training set
+
+vibration_reports_path = f"https://{storage_account}.blob.core.windows.net/public/digital-twin-gtm/data/model_development/vibration_reports.csv"
 vibration_reports = spark.createDataFrame(pd.read_csv(vibration_reports_path))
 vibration_reports.write.mode("overwrite").saveAsTable("vibration_reports_labelled")
 
@@ -222,21 +224,23 @@ client.transition_model_version_stage(
 # DBTITLE 1,Retrieve Credentials
 import os 
 
-azSubcriptionId = ... # please use Databricks Secrets
-azTenantId = ... # please use Databricks Secrets
-spId = ... # please use Databricks Secrets
-spSecret = ... # please use Databricks Secrets
+azSubcriptionId = dbutils.secrets.get(scope = "common-sp", key = "az-sub-id")
+azTenantId = dbutils.secrets.get(scope = "common-sp", key = "az-tenant-id")
+spId = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-id")
+spSecret = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-secret")
 
 os.environ["AZURE_TENANT_ID"] = azTenantId
 os.environ["AZURE_CLIENT_ID"] = spId
 os.environ["AZURE_CLIENT_SECRET"] = spSecret
 
+storage_account = "pawaritstorageaccount" # TODO: please change to your own storage account
+
 spark.conf.set("spark.sql.shuffle.partitions", 1) # just for this demo
-spark.conf.set("fs.azure.account.auth.type.pawaritstorageaccount.dfs.core.windows.net", "OAuth")
-spark.conf.set("fs.azure.account.oauth.provider.type.pawaritstorageaccount.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-spark.conf.set("fs.azure.account.oauth2.client.id.pawaritstorageaccount.dfs.core.windows.net", spId)
-spark.conf.set("fs.azure.account.oauth2.client.secret.pawaritstorageaccount.dfs.core.windows.net", spSecret)
-spark.conf.set("fs.azure.account.oauth2.client.endpoint.pawaritstorageaccount.dfs.core.windows.net", f"https://login.microsoftonline.com/{azTenantId}/oauth2/token")
+spark.conf.set(f"fs.azure.account.auth.type.{storage_account}.dfs.core.windows.net", "OAuth")
+spark.conf.set(f"fs.azure.account.oauth.provider.type.{storage_account}.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+spark.conf.set(f"fs.azure.account.oauth2.client.id.{storage_account}.dfs.core.windows.net", spId)
+spark.conf.set(f"fs.azure.account.oauth2.client.secret.{storage_account}.dfs.core.windows.net", spSecret)
+spark.conf.set(f"fs.azure.account.oauth2.client.endpoint.{storage_account}.dfs.core.windows.net", f"https://login.microsoftonline.com/{azTenantId}/oauth2/token")
 
 # COMMAND ----------
 
@@ -270,6 +274,10 @@ file_name_expr = F.reverse(F.split(F.input_file_name(), "/")).getItem(0)
 
 # COMMAND ----------
 
+landing_zone_storage_account = "pawaritstorageaccount" # TODO: please change to your own storage account
+landing_zone_storage_container = "demo" # TODO: please change to your own storage container
+landing_zone_path = f"abfss://{landing_zone_storage_container}@{landing_zone_storage_account}.dfs.core.windows.net/digital-twin/data/landing_zone"
+
 input_df = (
   spark
     .readStream
@@ -279,7 +287,7 @@ input_df = (
     .option("cloudFiles.schemaLocation", "/tmp/digital_twin_upload_schema/")
     .option("cloudFiles.schemaHints", schema)
     .option("cloudFiles.useIncrementalListing", "true") # for demo purposes, no checkpointing
-    .load("abfss://demo@pawaritstorageaccount.dfs.core.windows.net/digital-twin-gtm/data/landing_zone")
+    .load(landing_zone_path)
 )
 
 input_df = input_df.select(file_name_expr.alias("fileName"), "*") # Get file name from ADLS path
