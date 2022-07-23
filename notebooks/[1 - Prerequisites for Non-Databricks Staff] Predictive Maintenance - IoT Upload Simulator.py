@@ -54,7 +54,7 @@ container_client = ContainerClient.from_container_url(
 import time
 
 max_uploads = 50
-upload_interval = 3 # in seconds
+upload_interval = 1 # in seconds
 t_failure = 30 # seconds until "Mixing Station failure"
 i_failure = int(t_failure / upload_interval) # iteration for failure to occur at
 
