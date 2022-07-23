@@ -221,13 +221,13 @@ client.transition_model_version_stage(
 
 # COMMAND ----------
 
-# DBTITLE 1,Retrieve Credentials
+# DBTITLE 1,Retrieve credentials to read from your landing zone 
 import os 
 
-azSubcriptionId = dbutils.secrets.get(scope = "common-sp", key = "az-sub-id")
-azTenantId = dbutils.secrets.get(scope = "common-sp", key = "az-tenant-id")
-spId = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-id")
-spSecret = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-secret")
+azSubcriptionId = dbutils.secrets.get(scope = "common-sp", key = "az-sub-id") # TODO: please change to your own credentials
+azTenantId = dbutils.secrets.get(scope = "common-sp", key = "az-tenant-id") # TODO: please change to your own credentials
+spId = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-id") # TODO: please change to your own credentials
+spSecret = dbutils.secrets.get(scope = "common-sp", key = "common-sa-sp-client-secret") # TODO: please change to your own credentials
 
 os.environ["AZURE_TENANT_ID"] = azTenantId
 os.environ["AZURE_CLIENT_ID"] = spId

@@ -41,7 +41,6 @@ from azure.storage.blob import ContainerClient
 blob_storage_account = "pawaritstorageaccount" # TODO: please change to your own storage account
 blob_storage_container = "demo" # TODO: please change to your own storage container
 url = f"https://{storage_account}.blob.core.windows.net/" + blob_storage_container
-# i.e. https://pawaritstorageaccount.blob.core.windows.net/example-storage-container
 
 container_client = ContainerClient.from_container_url(
     container_url=url,
