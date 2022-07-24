@@ -33,6 +33,10 @@ fault_df = full_df[full_df["fault"].str.contains("Ball_007_1")].drop("fault", ax
 # DBTITLE 1,If you want to access a specific container, use a SAS token
 sas_token = ... # TODO: use a SAS token or storage account key to upload data to your storage container
 
+if sas_token == Ellipsis:
+  print("Please provide a SAS token for your landing zone's storage container.")
+  dbutils.notebook.exit("Please provide a SAS token for your landing zone's storage container.")
+
 # COMMAND ----------
 
 # DBTITLE 1,Use the Azure SDK to interact with the storage container
