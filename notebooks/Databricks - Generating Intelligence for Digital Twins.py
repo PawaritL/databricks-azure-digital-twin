@@ -48,7 +48,7 @@
 # MAGIC - virtual sensing (aka soft sensing)
 # MAGIC 
 # MAGIC Databricks provides high performance and scalability while flexibly allowing you to express meaningful, domain-specific insights.  
-# MAGIC <img src="https://pawaritstorageaccount.blob.core.windows.net/public/digital-twin-gtm/digital-twins-key-capabilities.png" width=88%>
+# MAGIC <img src="https://pawaritstorageaccount.blob.core.windows.net/public/digital-twin-gtm/digital-twins-key-capabilities.png" width=69%>
 
 # COMMAND ----------
 
