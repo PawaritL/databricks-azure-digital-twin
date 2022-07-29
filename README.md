@@ -42,7 +42,7 @@ In this demo, we’ll aim to:
     - Click any MixingStep then quickly talk about the components and properties
     - You can run `SELECT * FROM digitaltwins WHERE HealthPrediction != 'OK'` to look for any assets meeting this certain condition (it should already be saved and available from the top-left of the screen)
       - there should be no results returned
-2. Walk through the [`Databricks - Generating Intelligence for Digital Twins`](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102254/command/3684663034102258) notebook thoroughly, showing how we can do streaming inference directly pulling models from MLflow
+2. Walk through the [`Databricks - Generating Intelligence for Digital Twins`](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302) notebook thoroughly, showing how we can do streaming inference directly pulling models from MLflow
     - Head back to the Twin Explorer
     - Run ```SELECT * FROM digitaltwins WHERE HealthPrediction != 'OK'``` again, you should now see `MixingStep-Line1-Munich`
       - click the + sign (Expand tree) to show `HealthPrediction` and `BallBearings.faultPredicted`
