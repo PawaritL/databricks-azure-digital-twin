@@ -156,6 +156,7 @@ display(vibration_reports)
 import databricks.automl
 
 # Successfully run on ML Runtime 10.4 LTS
+# NOTE FOR DATABRICKS STAFF: no need to run this cell as the model has already been trained on this workspace
 summary = databricks.automl.classify(
   dataset=vibration_reports,
   target_col="fault",
