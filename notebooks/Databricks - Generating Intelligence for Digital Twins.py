@@ -155,13 +155,16 @@ display(vibration_reports)
 
 import databricks.automl
 
-# Successfully run on ML Runtime 10.4 LTS
-# NOTE FOR DATABRICKS STAFF: no need to run this cell as the model has already been trained on this workspace
-summary = databricks.automl.classify(
-  dataset=vibration_reports,
-  target_col="fault",
-  timeout_minutes=5,
-)
+run_automl = False # change to True if you're not a Databricks employee on the demo workspace!
+
+if run_automl:
+  
+  # Successfully run on ML Runtime 10.4 LTS
+  summary = databricks.automl.classify(
+    dataset=vibration_reports,
+    target_col="fault",
+    timeout_minutes=5,
+  )
 
 # COMMAND ----------
 
@@ -181,17 +184,19 @@ from mlflow.tracking.client import MlflowClient
 
 model_name = "vibration_fault_detection"
 
-# Find path to our best model from AutoML, then add it to our model registry
-model_uri = summary.best_trial.model_path
-model_details = mlflow.register_model(model_uri=model_uri, name=model_name)
+if run_automl:
 
-# Transition the model to the Production environment
-client = MlflowClient()
-client.transition_model_version_stage(
-  name=model_details.name,
-  version=model_details.version,
-  stage="production",
-)
+  # Find path to our best model from AutoML, then add it to our model registry
+  model_uri = summary.best_trial.model_path
+  model_details = mlflow.register_model(model_uri=model_uri, name=model_name)
+
+  # Transition the model to the Production environment
+  client = MlflowClient()
+  client.transition_model_version_stage(
+    name=model_details.name,
+    version=model_details.version,
+    stage="production",
+  )
 
 # COMMAND ----------
 
@@ -315,6 +320,7 @@ model_production_uri = f"models:/{model_name}/{environment}"
 print("Loading registered model version from URI: '{model_uri}'".format(model_uri=model_production_uri))
 
 # Load the current (latest) model from the PROD environment into a User-Defined Function (UDF)
+# Make sure the model exists on your workspace: set run_automl to True if you don't have the trained model in your workspace yet! 
 loaded_model = mlflow.pyfunc.spark_udf(spark, model_uri=model_production_uri, result_type='string')
 
 # Apply our LightGBM model immediately to our incoming data
