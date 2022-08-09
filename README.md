@@ -1,9 +1,8 @@
 # Azure Databricks + Azure Digital Twins
 Demo Example for Databricks + Azure Digital Twin
-- [Main Notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
-
-## Example Demo Presentation
 - [Video](https://drive.google.com/drive/folders/1C7QlG2i81O8DSvek4BNGSpOzPBhoAcZ1?usp=sharing)
+- [External Deck](https://docs.google.com/presentation/d/1s-fRsTmhjN_0iJy1aCTtQC6VcqdoUtesu4_H0Scghnk/edit#slide=id.g129f8e02c7b_0_92)
+- [Main Notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
 
 ## Contact
 - Pawarit Laosunthara
