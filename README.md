@@ -1,8 +1,9 @@
 # Azure Databricks + Azure Digital Twins
 Demo Example for Databricks + Azure Digital Twin
+- [Main Notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
 
 ## Example Demo Presentation
-- [Here](https://drive.google.com/drive/folders/1C7QlG2i81O8DSvek4BNGSpOzPBhoAcZ1?usp=sharing)
+- [Video](https://drive.google.com/drive/folders/1C7QlG2i81O8DSvek4BNGSpOzPBhoAcZ1?usp=sharing)
 
 ## Contact
 - Pawarit Laosunthara
@@ -13,6 +14,7 @@ Demo Example for Databricks + Azure Digital Twin
 In this demo, we’ll aim to:
 - Model a part of the manufacturing process using Azure Digital Twins
 - Demonstrate Databricks’ Structured Streaming, ML capabilities, and connectivity to Azure Digital Twins
+  - [Main Notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
 - Showcase 2 common uses for digital twins in manufacturing:
   - Predictive Maintenance
   - Root Cause Analysis & Troubleshooting
@@ -21,7 +23,7 @@ In this demo, we’ll aim to:
 <img src="https://pawaritstorageaccount.blob.core.windows.net/public/digital-twin-gtm/digital-twins-battery-manufacturing-process.png" width=69%>
 
 ## Prerequisites
-- Access to https://eastus2.azuredatabricks.net/
+- Access to the https://eastus2.azuredatabricks.net/ workspace and this [notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
 - Member of the *sales* Azure AD group ([search your name here](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/Members/groupId/09018260-2d7d-4b24-8633-8243c4b92340))
 
 ## Pre-Demo Instructions
