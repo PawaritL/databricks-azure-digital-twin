@@ -28,9 +28,9 @@ In this demo, we’ll aim to:
 
 ## Pre-Demo Instructions
 1. Check your access to our [“Battery Manufacturing” instance on Azure Digital Twin Explorer](https://explorer.digitaltwins.azure.net/?tid=9f37a392-f0ae-4280-9796-f1864a10effc&eid=battery-plant-digital-twin.api.eus2.digitaltwins.azure.net)
-2. Ensure that you have a cluster running with at least ML Runtime 10.4 LTS. **Shared Autoscaling Americas** or **Shared Autoscaling EMEA** should work
-3. Navigate to the *notebooks* folder
-4. *Run All* on each of them.
+2. Ensure that you have a cluster running with ML Runtime 10.4 LTS. **Shared Autoscaling Americas** should work
+3. *For non-Databricks staff only*, run the prerequisite notebooks in order
+4. *Run All* on the [Databricks - Generating Intelligence for Digital Twins](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302) notebook
 
 ## Pre-Demo Saved Queries
 - Feel free to use these saved queries for your demo :)
