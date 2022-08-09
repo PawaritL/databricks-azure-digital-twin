@@ -22,7 +22,7 @@ In this demo, we’ll aim to:
 <img src="https://pawaritstorageaccount.blob.core.windows.net/public/digital-twin-gtm/digital-twins-battery-manufacturing-process.png" width=69%>
 
 ## Prerequisites
-- Access to the https://eastus2.azuredatabricks.net/ workspace and this [notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
+- Access to the **demo** workspace (https://eastus2.azuredatabricks.net/) and this [notebook](https://eastus2.azuredatabricks.net/?o=5206439413157315#notebook/3684663034102300/command/3684663034102302)
 - Member of the *sales* Azure AD group ([search your name here](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/Members/groupId/09018260-2d7d-4b24-8633-8243c4b92340))
 
 ## Pre-Demo Instructions
