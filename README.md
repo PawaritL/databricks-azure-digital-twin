@@ -38,6 +38,7 @@ In this demo, we’ll aim to:
     - ```SELECT target FROM DIGITALTWINS source JOIN target RELATED source.rel_runs_steps   WHERE source.$dtId = 'ProductionLine2-Dallas'``` graph query to find all stations operated by `ProductionLine2-Dallas`
 
 ## Demo
+0. [Example Presentation + Demo Video](https://drive.google.com/drive/folders/1C7QlG2i81O8DSvek4BNGSpOzPBhoAcZ1?usp=sharing)
 1. After a brief introduction, click the [Twin Explorer](https://explorer.digitaltwins.azure.net/?tid=9f37a392-f0ae-4280-9796-f1864a10effc&eid=battery-plant-digital-twin.api.eus2.digitaltwins.azure.net) link in the first cell, explain how:
     - We have multiple plants/geographies consolidated
     - Click any MixingStep then quickly talk about the components and properties
